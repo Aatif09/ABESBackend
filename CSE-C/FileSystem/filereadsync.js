@@ -2,7 +2,6 @@ const fs = require("fs");
 // fs.writeFileSync("./data1.txt", "Hello ABES", "utf-8");
 // fs.writeFileSync("./data1.txt", "Hello ABESEC", "utf-8");
 // fs.appendFileSync("./data1.txt", " Students", "utf-8");
-
 // fs.renameSync("./data2.txt", "./data3.txt");
 // fs.unlinkSync("./data3.txt");
 
