@@ -1,5 +1,5 @@
 const http = require('http');
-const fs = require('fs/promises');
+// const fs = require('fs/promises');
 // const users =
 //   [{
 //     id: 1, name: 'Rahul', email: 'rahul@example.com'
