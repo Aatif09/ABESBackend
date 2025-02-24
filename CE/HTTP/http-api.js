@@ -1,8 +1,10 @@
 const http = require('http');
 const axios = require('axios');
+const cors = require('cors');
 const port = 3000;
 const server = http.createServer(async (req, res) => {
   console.log('New request received');
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
   res.writeHead(200, { 'Content-Type': 'text/html' });
 
   // const response = await fetch("https://dummyjson.com/products")
