@@ -30,6 +30,7 @@ app.get("/getusers/:id", (req, res) => {
   const user = users.find(user => user.id == id);
   res.send(user);
 });
+
 app.get("/getusers", (req, res) => {
   res.send(users);
 });
