@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
   res.send("Hello CS-C");
 });
 app.get('/users', (req, res) => {
+  fileread
   res.send(users);
 });
 app.get('/users/:id', (req, res) => {
