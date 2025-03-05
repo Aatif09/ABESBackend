@@ -1,16 +1,10 @@
 import express from 'express';
-const users = [{
-  id: 1,
-  name: 'Dev',
-  email: 'dev@abes.ac.in'
-}]
+import fs from 'fs/promises';
 const app = express();
 const port = 3000;
-app.get("/", (req, res) => {
-  res.send("Welcome to my API");
-});
-
-app.get("/api", (req, res) => {
+app.get("/api", async (req, res) => {
+  const data = await fs.readFile("./users.json", "utf-8");
+  const users = JSON.parse(data);
   res.send(users);
 });
 app.use(express.json()); // Built in Middleware
@@ -19,10 +13,13 @@ app.post("/api/users", (req, res) => {
   console.log(bodydata)
   res.send("Data received Successfully");
 });
-app.post("/api/createuser", (req, res) => {
+app.post("/api/createuser", async (req, res) => {
+  const data = await fs.readFile("./users.json", "utf-8");
+  const users = JSON.parse(data);
   const { name, email } = req.body;
   const newid = users.length > 0 ? users[users.length - 1].id + 1 : 1;
   users.push({ id: newid, name, email });
+  await fs.writeFile("./users.json", JSON.stringify(users), "utf-8");
   res.status(201).send("User Created Successfully");
 });
 app.get("/getusers/:id", (req, res) => {
