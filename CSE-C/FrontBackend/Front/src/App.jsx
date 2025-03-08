@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     const fetchdata = async () => {
-      const apidata = await axios.get("http://localhost:3000/api");
+      const apidata = await axios.get("https://abesbackend.onrender.com/api");
       setProducts(apidata.data);
     }
     fetchdata();
